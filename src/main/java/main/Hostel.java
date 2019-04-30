@@ -41,17 +41,26 @@ public class Hostel{
 		               String checkName = splited[0];
 		               //write your code here !!!
 //		               compare check name with name and return true if present and false if not
+		               if( checkName.equals(name) ) {
+		            	   return true;
+		               }
 	               }
 	               
 	               
 	            }catch(Exception e){
 	                System.out.println(e);
 	            }
-			return true;
+			return false;
 	   }
+	   //writes the names of students from hostel.txt into allothostel.txt
        public static void allotHostel(){
     	   //write your code here!!!
-    	   
+    	   try {
+    		   writedata();
+    	   }
+    	   catch( IOException e){
+    		   System.out.println(e);
+    	   }
        }
 
        public static boolean verifyStudent(int regNo){
@@ -66,6 +75,7 @@ public class Hostel{
                         return false;
                     }
                 }
+            br.close();
             }catch(Exception e){
                 System.out.println(e);
             }
@@ -76,6 +86,7 @@ public class Hostel{
     	   boolean chk = true;
     	   
     	   //write your code here
+    	   chk = readData(name);
     	   
     	   return chk;
         }
